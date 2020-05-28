@@ -1,0 +1,39 @@
+.title-tooltip {
+    background: rgba(255,255,255,.9);
+    border: 2px solid #457DFB;
+    border-radius: .1em;
+    font-size: .7em;
+    padding: .25em .5em;
+    position: absolute;
+    bottom: 2em;
+    left: calc(50% - 8em);
+    text-align: center;
+    width: 16em;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-.25em);
+    visibility: hidden;
+    transition: visibility 0s .5s,
+                opacity .2s ease-out,
+                transform .5s cubic-bezier(0, 1, .5, 1);
+}
+
+.title-tooltip::after {
+    border-radius: 0;
+    border-color: #457DFB transparent;
+    border-style: solid;
+    border-width: .2em .2em 0 .2em;
+    bottom: -.2em;
+    content: "";
+    left: calc(50% - .2em);
+    position: absolute;
+    width: 0;
+}
+
+.anchor-tooltip:hover .title-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity .2s ease-out,
+                transform .5s cubic-bezier(0, 1, .5, 1);
+}
